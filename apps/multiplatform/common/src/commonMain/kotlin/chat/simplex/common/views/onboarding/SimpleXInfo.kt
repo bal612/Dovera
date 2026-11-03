@@ -168,6 +168,15 @@ fun SimpleXInfoLayout(
     if (onboardingStage == null) {
       val uriHandler = LocalUriHandler.current
       Text(
+        text = "Dovera تطبيق مراسلة مبني على مشروع SimpleX Chat مفتوح المصدر. تبقى إشعارات حقوق النشر والتراخيص الأصلية محفوظة، ويخضع كل مكوّن لشروط ترخيصه.",
+        style = MaterialTheme.typography.caption,
+        color = MaterialTheme.colors.secondary,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+          .fillMaxWidth()
+          .padding(horizontal = DEFAULT_PADDING, bottom = DEFAULT_PADDING_HALF)
+      )
+      Text(
         text = "Dovera من kalimat",
         style = MaterialTheme.typography.caption.copy(
           fontSize = 12.sp,
