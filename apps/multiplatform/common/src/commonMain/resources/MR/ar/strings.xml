@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accept_contact_button">اقبل</string>
-    <string name="about_simplex_chat">عن SimpleX Chat</string>
+    <string name="about_simplex_chat">عن Dovera</string>
     <string name="a_plus_b">a + b</string>
     <string name="accept">اقبل</string>
     <string name="chat_item_ttl_week">اسبوع 1</string>
@@ -9,7 +9,7 @@
     <string name="color_primary">لون تمييزي</string>
     <string name="chat_item_ttl_day">يوم 1</string>
     <string name="accept_feature">اقبل</string>
-    <string name="about_simplex">عن SimpleX</string>
+    <string name="about_simplex">عن Dovera</string>
     <string name="above_then_preposition_continuation">أعلاه، ثم:</string>
     <string name="accept_call_on_lock_screen">اقبل</string>
     <string name="delete_chat_profile_action_cannot_be_undone_warning">لا يمكن التراجع عن هذا الإجراء - سيتم فقد ملف تعريفك وجهات اتصالك ورسائلك وملفاتك بشكل نهائي.</string>
