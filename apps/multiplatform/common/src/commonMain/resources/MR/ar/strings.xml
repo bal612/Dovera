@@ -1014,7 +1014,7 @@
     <string name="auth_stop_chat">إيقاف الدردشة</string>
     <string name="stop_rcv_file__title">التوقف عن استلام الملف؟</string>
     <string name="share_file">مشاركة الملف…</string>
-    <string name="image_descr_simplex_logo">شعار SimpleX</string>
+    <string name="image_descr_simplex_logo">شعار Dovera</string>
     <string name="icon_descr_simplex_team">فريق SimpleX</string>
     <string name="show_QR_code">أظهر رمز QR</string>
     <string name="is_verified">تم التحقق %s</string>
