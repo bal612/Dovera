@@ -163,6 +163,15 @@ fun SimpleXInfoLayout(
       }
     }
   )
+    if (onboardingStage == null) {
+      Text(
+        "Dovera من kalimat",
+        style = MaterialTheme.typography.caption,
+        color = MaterialTheme.colors.secondary,
+        textAlign = TextAlign.Center,
+        modifier = Modifier.fillMaxWidth().padding(bottom = DEFAULT_PADDING)
+      )
+    }
   }
   LaunchedEffect(Unit) {
     if (chatModel.migrationState.value != null && !ModalManager.fullscreen.hasModalsOpen()) {
