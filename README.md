@@ -10,7 +10,13 @@
 
 Invest in SimpleX Chat. [Learn more on Wefunder](https://wefunder.com/simplexchat).
 
-# SimpleX - the first messaging platform that has no user identifiers of any kind - 100% private by design!
+# Dovera — من kalimat
+
+**Dovera** is an independent messaging product built from the open-source SimpleX Chat codebase. The upstream SimpleX project remains the technical foundation; this repository is the Dovera customization maintained by its own project owner.
+
+> Dovera من kalimat
+
+
 
 [<img src="./images/trail-of-bits.jpg" height="80">](http://simplex.chat/blog/20221108-simplex-chat-v4.2-security-audit-new-website.html) &nbsp;&nbsp;&nbsp; [<img src="./images/privacy-guides.jpg" height="64">](https://www.privacyguides.org/en/real-time-communication/#simplex-chat) &nbsp;&nbsp;&nbsp; [<img src="./images/whonix-logo.jpg" height="64">](https://www.whonix.org/wiki/Chat#Recommendation) &nbsp;&nbsp;&nbsp; [<img src="./images/kuketz-blog.jpg" height="64">](https://www.kuketz-blog.de/simplex-eindruecke-vom-messenger-ohne-identifier/)
 
