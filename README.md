@@ -16,6 +16,13 @@ Invest in SimpleX Chat. [Learn more on Wefunder](https://wefunder.com/simplexcha
 
 > Dovera من kalimat
 
+## Dovera origin and open-source notices
+
+Dovera is a customized messaging application based on the open-source SimpleX Chat project. The upstream source code and each third-party component remain subject to their respective licenses and copyright notices. The SimpleX Chat source code is distributed under the GNU Affero General Public License version 3 (AGPLv3); see [LICENSE](./LICENSE). Other components may carry separate license terms, which must be preserved with their notices. SimpleX names, logos, and original graphic assets are not transferred by the software license. Dovera is a separate project identity and is not presented as the official SimpleX Chat application.
+
+تطبيق Dovera مبني على مشروع SimpleX Chat مفتوح المصدر مع تعديلات وهوية مستقلة. تبقى الشيفرة الأصلية وإشعارات حقوق النشر والتراخيص الخاصة بكل مكوّن كما هي، ويخضع كل مكوّن لشروط ترخيصه. شيفرة SimpleX Chat مرخصة بموجب GNU AGPL الإصدار الثالث، وتُحفظ إشعارات وتراخيص المكونات الأخرى كلٌ بحسب ترخيصه. لا تمنح رخصة الشيفرة حقوق العلامات التجارية أو الشعارات أو المواد الرسومية الأصلية الخاصة بـ SimpleX.
+
+
 
 
 [<img src="./images/trail-of-bits.jpg" height="80">](http://simplex.chat/blog/20221108-simplex-chat-v4.2-security-audit-new-website.html) &nbsp;&nbsp;&nbsp; [<img src="./images/privacy-guides.jpg" height="64">](https://www.privacyguides.org/en/real-time-communication/#simplex-chat) &nbsp;&nbsp;&nbsp; [<img src="./images/whonix-logo.jpg" height="64">](https://www.whonix.org/wiki/Chat#Recommendation) &nbsp;&nbsp;&nbsp; [<img src="./images/kuketz-blog.jpg" height="64">](https://www.kuketz-blog.de/simplex-eindruecke-vom-messenger-ohne-identifier/)
