@@ -29,17 +29,18 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Install Android SDK components
+        env:
+          ANDROID_HOME: /usr/local/lib/android/sdk
+        run: |
+          yes | sdkmanager --licenses
+          sdkmanager --install "platform-tools" "platforms;android-35" "build-tools;35.0.0" "cmake;3.22.1"
 
       - name: Set up Android NDK
         uses: nttld/setup-ndk@v1
         with:
           ndk-version: 23.1.7779620
           link-to-sdk: true
-
-      - name: Set up CMake
-        run: sdkmanager "cmake;3.22.1"
 
       - name: Build Dovera FOSS debug APK
         working-directory: apps/multiplatform
