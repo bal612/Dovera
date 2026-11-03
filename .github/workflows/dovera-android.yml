@@ -40,6 +40,40 @@ jobs:
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/23.1.7779620" >> "$GITHUB_ENV"
           echo "$ANDROID_HOME/ndk/23.1.7779620" >> "$GITHUB_PATH"
 
+      - name: Install Nix for upstream Android native libraries
+        uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            max-jobs = 2
+            cores = 2
+            keep-outputs = true
+            keep-derivations = true
+
+      - name: Build and install SimpleX native libraries
+        env:
+          NIX_CONFIG: experimental-features = nix-command flakes
+        run: |
+          set -euxo pipefail
+          LIBS="apps/multiplatform/common/src/commonMain/cpp/android/libs"
+          mkdir -p "$LIBS/arm64-v8a" "$LIBS/armeabi-v7a"
+
+          nix build '.#hydraJobs.x86_64-linux.aarch64-android:lib:simplex-chat' -o result-arm64-simplex
+          unzip -o result-arm64-simplex/pkg-aarch64-android-libsimplex.zip -d "$LIBS/arm64-v8a"
+          nix build '.#hydraJobs.x86_64-linux.aarch64-android:lib:support' -o result-arm64-support
+          unzip -o result-arm64-support/pkg-aarch64-android-libsupport.zip -d "$LIBS/arm64-v8a"
+
+          nix build '.#hydraJobs.armv7a-android:lib:simplex-chat.x86_64-linux' -o result-armv7-simplex
+          unzip -o result-armv7-simplex/pkg-armv7a-android-libsimplex.zip -d "$LIBS/armeabi-v7a"
+          nix build '.#hydraJobs.armv7a-android:lib:support.x86_64-linux' -o result-armv7-support
+          unzip -o result-armv7-support/pkg-armv7a-android-libsupport.zip -d "$LIBS/armeabi-v7a"
+
+          test -s "$LIBS/arm64-v8a/libsimplex.so"
+          test -s "$LIBS/arm64-v8a/libsupport.so"
+          test -s "$LIBS/armeabi-v7a/libsimplex.so"
+          test -s "$LIBS/armeabi-v7a/libsupport.so"
+          file "$LIBS"/*/*.so
+
       - name: Build Dovera FOSS debug APK
         working-directory: apps/multiplatform
         run: ./gradlew --no-daemon --stacktrace :android:assembleFossDebug
