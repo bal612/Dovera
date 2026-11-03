@@ -36,13 +36,9 @@ jobs:
           export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/cmdline-tools/bin:$ANDROID_HOME/platform-tools:$PATH"
           command -v sdkmanager
           yes | sdkmanager --licenses
-          sdkmanager --install "platform-tools" "platforms;android-35" "build-tools;35.0.0" "cmake;3.22.1"
-
-      - name: Set up Android NDK
-        uses: nttld/setup-ndk@v1
-        with:
-          ndk-version: 23.1.7779620
-          link-to-sdk: true
+          sdkmanager --install "platform-tools" "platforms;android-35" "build-tools;35.0.0" "cmake;3.22.1" "ndk;23.1.7779620"
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/23.1.7779620" >> "$GITHUB_ENV"
+          echo "$ANDROID_HOME/ndk/23.1.7779620" >> "$GITHUB_PATH"
 
       - name: Build Dovera FOSS debug APK
         working-directory: apps/multiplatform
