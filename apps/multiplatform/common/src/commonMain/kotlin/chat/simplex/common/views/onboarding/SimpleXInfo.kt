@@ -23,6 +23,8 @@ import dev.icerock.moko.resources.compose.painterResource
 import dev.icerock.moko.resources.compose.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDirection
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.*
 import chat.simplex.common.BuildConfigCommon
 import chat.simplex.common.model.*
@@ -164,12 +166,20 @@ fun SimpleXInfoLayout(
     }
   )
     if (onboardingStage == null) {
+      val uriHandler = LocalUriHandler.current
       Text(
-        "Dovera من kalimat",
-        style = MaterialTheme.typography.caption,
+        text = "Dovera من kalimat",
+        style = MaterialTheme.typography.caption.copy(
+          fontSize = 12.sp,
+          fontWeight = FontWeight.Light,
+          textDirection = TextDirection.Rtl
+        ),
         color = MaterialTheme.colors.secondary,
         textAlign = TextAlign.Center,
-        modifier = Modifier.fillMaxWidth().padding(bottom = DEFAULT_PADDING)
+        modifier = Modifier
+          .fillMaxWidth()
+          .clickable { uriHandler.openUri("https://tinyurl.com/Kalimat2011") }
+          .padding(bottom = DEFAULT_PADDING)
       )
     }
   }
