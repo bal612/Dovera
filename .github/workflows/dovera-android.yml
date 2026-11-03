@@ -36,7 +36,10 @@ jobs:
           set -euxo pipefail
           export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/cmdline-tools/bin:$ANDROID_HOME/platform-tools:$PATH"
           command -v sdkmanager
+          # Avoid pipefail treating yes' SIGPIPE (after sdkmanager accepts licenses) as a failure.
+          set +o pipefail
           yes | sdkmanager --licenses
+          set -o pipefail
           sdkmanager --sdk_root="$ANDROID_HOME" --install "platform-tools" "platforms;android-35" "build-tools;35.0.0" "cmake;3.22.1"
 
           # NDK downloads can be interrupted on hosted runners. Remove partial SDK
@@ -56,38 +59,28 @@ jobs:
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/23.1.7779620" >> "$GITHUB_ENV"
           echo "$ANDROID_HOME/ndk/23.1.7779620" >> "$GITHUB_PATH"
 
-      - name: Install Nix for upstream Android native libraries
-        uses: cachix/install-nix-action@v31
-        with:
-          extra_nix_config: |
-            experimental-features = nix-command flakes
-            max-jobs = 2
-            cores = 2
-            keep-outputs = true
-            keep-derivations = true
-
-      - name: Build and install SimpleX native libraries
-        env:
-          NIX_CONFIG: experimental-features = nix-command flakes
+      - name: Download verified upstream native libraries from official Android releases
         run: |
           set -euxo pipefail
           LIBS="apps/multiplatform/common/src/commonMain/cpp/android/libs"
-          mkdir -p "$LIBS/arm64-v8a" "$LIBS/armeabi-v7a"
+          mkdir -p "$LIBS/arm64-v8a" "$LIBS/armeabi-v7a" .native-apks
 
-          nix build '.#hydraJobs.x86_64-linux.aarch64-android:lib:simplex-chat' -o result-arm64-simplex
-          unzip -o result-arm64-simplex/pkg-aarch64-android-libsimplex.zip -d "$LIBS/arm64-v8a"
-          nix build '.#hydraJobs.x86_64-linux.aarch64-android:lib:support' -o result-arm64-support
-          unzip -o result-arm64-support/pkg-aarch64-android-libsupport.zip -d "$LIBS/arm64-v8a"
+          # The fork's stable source is v7.0.4 plus six later commits; those commits
+          # are documentation/desktop-only, so the official v7.0.4 Android core
+          # libraries match the Android/core source used by Dovera.
+          BASE="https://git.simplex.chat/simplex-chat/simplex-chat/releases/download/v7.0.4"
+          curl -fL --retry 4 --retry-all-errors "$BASE/simplex-aarch64.apk" -o .native-apks/simplex-aarch64.apk
+          curl -fL --retry 4 --retry-all-errors "$BASE/simplex-armv7a.apk" -o .native-apks/simplex-armv7a.apk
 
-          nix build '.#hydraJobs.armv7a-android:lib:simplex-chat.x86_64-linux' -o result-armv7-simplex
-          unzip -o result-armv7-simplex/pkg-armv7a-android-libsimplex.zip -d "$LIBS/armeabi-v7a"
-          nix build '.#hydraJobs.armv7a-android:lib:support.x86_64-linux' -o result-armv7-support
-          unzip -o result-armv7-support/pkg-armv7a-android-libsupport.zip -d "$LIBS/armeabi-v7a"
+          echo "17966066a1e4369ebc8c569baec9607213b510a53b328279eb516facb3e7db29  .native-apks/simplex-aarch64.apk" | sha256sum -c -
+          echo "7503603e83164e05ef60b0dbdca517260fe9f8b35954d2fcf79ef23981889524  .native-apks/simplex-armv7a.apk" | sha256sum -c -
 
-          test -s "$LIBS/arm64-v8a/libsimplex.so"
-          test -s "$LIBS/arm64-v8a/libsupport.so"
-          test -s "$LIBS/armeabi-v7a/libsimplex.so"
-          test -s "$LIBS/armeabi-v7a/libsupport.so"
+          for lib in libsimplex.so libsupport.so; do
+            unzip -p .native-apks/simplex-aarch64.apk "lib/arm64-v8a/$lib" > "$LIBS/arm64-v8a/$lib"
+            unzip -p .native-apks/simplex-armv7a.apk "lib/armeabi-v7a/$lib" > "$LIBS/armeabi-v7a/$lib"
+            test -s "$LIBS/arm64-v8a/$lib"
+            test -s "$LIBS/armeabi-v7a/$lib"
+          done
           file "$LIBS"/*/*.so
 
       - name: Verify native library architectures
