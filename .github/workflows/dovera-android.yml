@@ -33,10 +33,26 @@ jobs:
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
         run: |
+          set -euxo pipefail
           export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/cmdline-tools/bin:$ANDROID_HOME/platform-tools:$PATH"
           command -v sdkmanager
           yes | sdkmanager --licenses
-          sdkmanager --install "platform-tools" "platforms;android-35" "build-tools;35.0.0" "cmake;3.22.1" "ndk;23.1.7779620"
+          sdkmanager --sdk_root="$ANDROID_HOME" --install "platform-tools" "platforms;android-35" "build-tools;35.0.0" "cmake;3.22.1"
+
+          # NDK downloads can be interrupted on hosted runners. Remove partial SDK
+          # downloads and retry the pinned version before failing the job.
+          for attempt in 1 2 3; do
+            rm -rf "$ANDROID_HOME/.downloadIntermediates" "$ANDROID_HOME/.temp" "$ANDROID_HOME/ndk/23.1.7779620"
+            if sdkmanager --sdk_root="$ANDROID_HOME" --install "ndk;23.1.7779620"; then
+              break
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "NDK 23.1.7779620 failed after 3 clean download attempts" >&2
+              exit 1
+            fi
+            sleep 15
+          done
+          test -x "$ANDROID_HOME/ndk/23.1.7779620/ndk-build"
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/23.1.7779620" >> "$GITHUB_ENV"
           echo "$ANDROID_HOME/ndk/23.1.7779620" >> "$GITHUB_PATH"
 
