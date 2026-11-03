@@ -174,7 +174,7 @@ fun SimpleXInfoLayout(
         textAlign = TextAlign.Center,
         modifier = Modifier
           .fillMaxWidth()
-          .padding(horizontal = DEFAULT_PADDING, bottom = DEFAULT_PADDING_HALF)
+          .padding(horizontal = DEFAULT_PADDING, vertical = DEFAULT_PADDING_HALF)
       )
       Text(
         text = "Dovera من kalimat",
