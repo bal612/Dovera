@@ -33,6 +33,8 @@ jobs:
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
         run: |
+          export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/cmdline-tools/bin:$ANDROID_HOME/platform-tools:$PATH"
+          command -v sdkmanager
           yes | sdkmanager --licenses
           sdkmanager --install "platform-tools" "platforms;android-35" "build-tools;35.0.0" "cmake;3.22.1"
 
