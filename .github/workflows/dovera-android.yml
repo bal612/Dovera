@@ -87,6 +87,14 @@ jobs:
             file "$lib"
           done
 
+      - name: Archive verified native libraries
+        uses: actions/upload-artifact@v4
+        with:
+          name: dovera-android-native-libraries
+          path: apps/multiplatform/common/src/commonMain/cpp/android/libs/*/*.so
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Build Dovera FOSS debug APK
         working-directory: apps/multiplatform
         run: ./gradlew --no-daemon --stacktrace :android:assembleFossDebug
