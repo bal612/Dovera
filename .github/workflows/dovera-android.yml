@@ -74,6 +74,19 @@ jobs:
           test -s "$LIBS/armeabi-v7a/libsupport.so"
           file "$LIBS"/*/*.so
 
+      - name: Verify native library architectures
+        run: |
+          set -euxo pipefail
+          LIBS="apps/multiplatform/common/src/commonMain/cpp/android/libs"
+          readelf -h "$LIBS/arm64-v8a/libsimplex.so" | grep -E 'Machine:.*AArch64'
+          readelf -h "$LIBS/arm64-v8a/libsupport.so" | grep -E 'Machine:.*AArch64'
+          readelf -h "$LIBS/armeabi-v7a/libsimplex.so" | grep -E 'Machine:.*ARM'
+          readelf -h "$LIBS/armeabi-v7a/libsupport.so" | grep -E 'Machine:.*ARM'
+          for lib in "$LIBS"/*/*.so; do
+            test -s "$lib"
+            file "$lib"
+          done
+
       - name: Build Dovera FOSS debug APK
         working-directory: apps/multiplatform
         run: ./gradlew --no-daemon --stacktrace :android:assembleFossDebug
