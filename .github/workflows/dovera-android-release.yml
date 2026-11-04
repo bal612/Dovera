@@ -23,7 +23,7 @@ jobs:
       - name: Checkout with submodules
         uses: actions/checkout@v4
         with:
-          ref: dovera-branding
+          ref: main
           submodules: recursive
 
       - name: Set up Java 17
