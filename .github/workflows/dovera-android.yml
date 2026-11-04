@@ -3,7 +3,7 @@ name: Dovera Android debug
 on:
   push:
     branches:
-      - dovera-branding
+      - main
     paths:
       - "apps/multiplatform/**"
       - ".github/workflows/dovera-android.yml"
