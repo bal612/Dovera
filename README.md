@@ -1,3 +1,9 @@
+# Dovera project note
+
+Dovera is a separately branded Android messaging product. Its current implementation retains upstream messaging code and native components; it does not claim an independently developed protocol or server infrastructure. Dovera gratefully acknowledges the SimpleX Chat open-source project as the technical foundation. Upstream source and third-party components remain subject to their original licenses and required copyright notices. This acknowledgement does not imply affiliation or endorsement.
+
+---
+
 [![build](https://github.com/simplex-chat/simplex-chat/actions/workflows/build.yml/badge.svg?branch=stable)](https://github.com/simplex-chat/simplex-chat/actions/workflows/build.yml)
 [![GitHub downloads](https://img.shields.io/github/downloads/simplex-chat/simplex-chat/total)](https://github.com/simplex-chat/simplex-chat/releases)
 [![GitHub release](https://img.shields.io/github/v/release/simplex-chat/simplex-chat)](https://github.com/simplex-chat/simplex-chat/releases)

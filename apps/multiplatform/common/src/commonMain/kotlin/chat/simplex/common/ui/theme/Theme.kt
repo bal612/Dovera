@@ -661,8 +661,8 @@ val DEFAULT_END_MODAL_WIDTH = 388.dp
 val DEFAULT_MAX_IMAGE_WIDTH = 500.dp
 
 val DarkColorPalette = darkColors(
-  primary = SimplexBlue,  // If this value changes also need to update #0088ff in string resource files
-  primaryVariant = SimplexBlue,
+  primary = DoveraBlue,
+  primaryVariant = DoveraBlue,
   secondary = HighOrLowlight,
   secondaryVariant = DarkGray,
 //  background = Color.Black,
@@ -674,7 +674,7 @@ val DarkColorPalette = darkColors(
 //  onError: Color = Color.Black,
 )
 val DarkColorPaletteApp = AppColors(
-  title = SimplexBlue,
+  title = DoveraBlue,
   primaryVariant2 = Color(0xFF18262E),
   sentMessage = Color(0xFF18262E),
   sentQuote = Color(0xFF1D3847),
@@ -683,8 +683,8 @@ val DarkColorPaletteApp = AppColors(
 )
 
 val LightColorPalette = lightColors(
-  primary = SimplexBlue,  // If this value changes also need to update #0088ff in string resource files
-  primaryVariant = SimplexBlue,
+  primary = DoveraBlue,
+  primaryVariant = DoveraBlue,
   secondary = HighOrLowlight,
   secondaryVariant = LightGray,
   error = Color.Red,
@@ -696,7 +696,7 @@ val LightColorPalette = lightColors(
 //  onSurface = Color.Black,
 )
 val LightColorPaletteApp = AppColors(
-  title = SimplexBlue,
+  title = DoveraBlue,
   primaryVariant2 = Color(0xFFE9F7FF),
   sentMessage = Color(0xFFE9F7FF),
   sentQuote = Color(0xFFD6F0FF),
@@ -705,8 +705,8 @@ val LightColorPaletteApp = AppColors(
 )
 
 val SimplexColorPalette = darkColors(
-  primary = Color(0xFF70F0F9),  // If this value changes also need to update #0088ff in string resource files
-  primaryVariant = Color(0xFF1298A5),
+  primary = Color(0xFF38BDF8),
+  primaryVariant = DoveraBlue,
   secondary = HighOrLowlight,
   secondaryVariant = Color(0xFF2C464D),
   background = Color(0xFF111528),
@@ -719,7 +719,7 @@ val SimplexColorPalette = darkColors(
   //  onError: Color = Color.Black,
 )
 val SimplexColorPaletteApp = AppColors(
-  title = Color(0xFF267BE5),
+  title = Color(0xFF38BDF8),
   primaryVariant2 = Color(0xFF172941),
   sentMessage = Color(0xFF172941),
   sentQuote = Color(0xFF1C3A57),

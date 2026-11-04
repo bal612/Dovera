@@ -1029,8 +1029,8 @@
   <string name="your_chat_profiles">Your chat profiles</string>
   <string name="create_chat_profile">Create chat profile</string>
   <string name="database_passphrase_and_export">Database passphrase &amp; export</string>
-  <string name="about_simplex_chat">About SimpleX Chat</string>
-  <string name="how_to_use_simplex_chat">How to use it</string>
+  <string name="about_simplex_chat">About Dovera</string>
+  <string name="how_to_use_simplex_chat">How to use Dovera</string>
   <string name="markdown_help">Markdown help</string>
   <string name="markdown_in_messages">Markdown in messages</string>
   <string name="chat_with_the_founder">Send questions and ideas</string>
@@ -2286,7 +2286,7 @@
   <string name="theme_system">System</string>
   <string name="theme_light">Light</string>
   <string name="theme_dark">Dark</string>
-  <string name="theme_simplex">SimpleX</string>
+  <string name="theme_simplex">Dovera Night</string>
   <string name="theme_black">Black</string>
 
   <!-- Languages -->

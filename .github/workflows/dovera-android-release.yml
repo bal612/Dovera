@@ -2,6 +2,9 @@ name: Dovera signed Android release
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - dovera-branding-work
 
 permissions:
   contents: read
@@ -23,7 +26,7 @@ jobs:
       - name: Checkout with submodules
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.ref }}
           submodules: recursive
 
       - name: Set up Java 17

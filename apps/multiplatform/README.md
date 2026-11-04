@@ -1,3 +1,9 @@
+# Dovera development note
+
+This application is being customized and branded as Dovera. Preserve the existing messaging engine, platform integrations, and all required third-party license notices. User-visible branding changes must not break messaging behavior or update compatibility. The technical foundation and required attributions are documented in the repository root README.
+
+---
+
 # Android App Development
 
 This is a guide to contributing to the develop of the SimpleX android and desktop apps.

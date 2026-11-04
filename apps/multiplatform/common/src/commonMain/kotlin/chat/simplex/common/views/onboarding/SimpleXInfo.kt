@@ -166,18 +166,8 @@ fun SimpleXInfoLayout(
     }
   )
     if (onboardingStage == null) {
-      val uriHandler = LocalUriHandler.current
       Text(
-        text = "Dovera تطبيق مراسلة مبني على مشروع SimpleX Chat مفتوح المصدر. تبقى إشعارات حقوق النشر والتراخيص الأصلية محفوظة، ويخضع كل مكوّن لشروط ترخيصه.",
-        style = MaterialTheme.typography.caption,
-        color = MaterialTheme.colors.secondary,
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-          .fillMaxWidth()
-          .padding(horizontal = DEFAULT_PADDING, vertical = DEFAULT_PADDING_HALF)
-      )
-      Text(
-        text = "Dovera من kalimat",
+        text = "مع الشكر للمشروع المفتوح المصدر الذي أسهمت تقنياته في تطوير Dovera.",
         style = MaterialTheme.typography.caption.copy(
           fontSize = 12.sp,
           fontWeight = FontWeight.Light,
@@ -187,8 +177,7 @@ fun SimpleXInfoLayout(
         textAlign = TextAlign.Center,
         modifier = Modifier
           .fillMaxWidth()
-          .clickable { uriHandler.openUri("https://tinyurl.com/Kalimat2011") }
-          .padding(bottom = DEFAULT_PADDING)
+          .padding(horizontal = DEFAULT_PADDING, vertical = DEFAULT_PADDING)
       )
     }
   }
@@ -201,13 +190,16 @@ fun SimpleXInfoLayout(
 
 @Composable
 fun SimpleXLogo() {
-  Image(
-    painter = painterResource(if (isInDarkTheme()) MR.images.logo_light else MR.images.logo),
-    contentDescription = stringResource(MR.strings.image_descr_simplex_logo),
-    contentScale = ContentScale.FillWidth,
+  Text(
+    text = "Dovera",
+    color = MaterialTheme.colors.primary,
+    fontSize = 38.sp,
+    fontWeight = FontWeight.Bold,
+    textAlign = TextAlign.Center,
+    letterSpacing = 1.5.sp,
     modifier = Modifier
-      .padding(bottom = 10.dp)
       .fillMaxWidth()
+      .padding(bottom = 10.dp)
   )
 }
 
