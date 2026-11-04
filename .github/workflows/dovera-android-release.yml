@@ -2,6 +2,9 @@ name: Dovera signed Android release
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - dovera-branding-work
 
 permissions:
   contents: read
