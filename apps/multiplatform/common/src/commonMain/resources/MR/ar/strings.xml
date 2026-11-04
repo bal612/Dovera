@@ -2906,4 +2906,7 @@
     <string name="v7_0_simplex_names_descr">أسماء لقناتك أو لشركتك.</string>
     <string name="info_row_file_servers">خوادم الملفات</string>
     <string name="share_text_file_servers">خوادم الملفات: %s</string>
+  <string name="dovera_intro_title">تواصل بحرية</string>
+  <string name="dovera_intro_subtitle">خصوصية وأمان في محادثاتك</string>
+  <string name="dovera_intro_description">مرحبًا بك في Dovera؛ مساحة للتواصل تحترم خصوصيتك وتمنحك تحكمًا أكبر بمحادثاتك.</string>
 </resources>
