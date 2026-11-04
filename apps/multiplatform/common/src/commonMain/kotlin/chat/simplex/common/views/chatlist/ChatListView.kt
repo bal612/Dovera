@@ -593,8 +593,14 @@ private fun ChatListToolbar(userPickerState: MutableStateFlow<AnimatedViewState>
     title = {
       if (!shouldShowOnboarding()) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(DEFAULT_SPACE_AFTER_ICON)) {
+          Image(
+            painterResource(MR.images.dovera_logo),
+            contentDescription = "Dovera",
+            modifier = Modifier.size(28.dp),
+            contentScale = ContentScale.Fit
+          )
           Text(
-            stringResource(MR.strings.your_chats),
+            "Dovera",
             color = MaterialTheme.colors.onBackground,
             fontWeight = FontWeight.SemiBold,
           )
