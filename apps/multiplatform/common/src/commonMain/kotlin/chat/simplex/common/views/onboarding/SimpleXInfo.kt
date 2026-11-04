@@ -190,13 +190,16 @@ fun SimpleXInfoLayout(
 
 @Composable
 fun SimpleXLogo() {
-  Image(
-    painter = painterResource(if (isInDarkTheme()) MR.images.logo_light else MR.images.logo),
-    contentDescription = stringResource(MR.strings.image_descr_simplex_logo),
-    contentScale = ContentScale.FillWidth,
+  Text(
+    text = "Dovera",
+    color = MaterialTheme.colors.primary,
+    fontSize = 38.sp,
+    fontWeight = FontWeight.Bold,
+    textAlign = TextAlign.Center,
+    letterSpacing = 1.5.sp,
     modifier = Modifier
-      .padding(bottom = 10.dp)
       .fillMaxWidth()
+      .padding(bottom = 10.dp)
   )
 }
 
