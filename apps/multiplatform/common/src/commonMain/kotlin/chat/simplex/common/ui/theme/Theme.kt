@@ -683,8 +683,8 @@ val DarkColorPaletteApp = AppColors(
 )
 
 val LightColorPalette = lightColors(
-  primary = SimplexBlue,  // If this value changes also need to update #0088ff in string resource files
-  primaryVariant = SimplexBlue,
+  primary = DoveraBlue,
+  primaryVariant = DoveraBlue,
   secondary = HighOrLowlight,
   secondaryVariant = LightGray,
   error = Color.Red,
@@ -696,7 +696,7 @@ val LightColorPalette = lightColors(
 //  onSurface = Color.Black,
 )
 val LightColorPaletteApp = AppColors(
-  title = SimplexBlue,
+  title = DoveraBlue,
   primaryVariant2 = Color(0xFFE9F7FF),
   sentMessage = Color(0xFFE9F7FF),
   sentQuote = Color(0xFFD6F0FF),
