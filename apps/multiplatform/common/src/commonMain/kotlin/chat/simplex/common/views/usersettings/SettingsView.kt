@@ -70,12 +70,6 @@ fun SettingsView(chatModel: ChatModel, setPerformLA: (Boolean) -> Unit, close: (
   }
 }
 
-val simplexTeamUri =
-  "simplex:/a#lrdvu2d8A1GumSmoKb2krQmtKhWXq-tyGpHuM7aMwsw?h=smp6.simplex.im"
-
-val simplexNewsUri =
-  "simplex:/c#grcfG3ulVI4Sh6ow33qBsmSk7uEy3gRSl2KkJ5ER6tA?h=smp18.simplex.im"
-
 @Composable
 fun SettingsLayout(
   stopped: Boolean,
@@ -116,16 +110,6 @@ fun SettingsLayout(
       AppVersionItem(showVersion)
     }
 
-    if (crowdfundingAvailable()) {
-      SectionDividerSpaced()
-      SectionView(stringResource(MR.strings.v7_0_invest)) {
-        SettingsActionItem(
-          painterResource(MR.images.ic_redeem),
-          stringResource(MR.strings.v7_0_crowdfunding),
-          { ModalManager.start.showModalCloseable(cardScreen = true) { close -> GetStakeView(showFirstImage = true, close = close) } }
-        )
-      }
-    }
     SectionBottomSpacer()
   }
 }
@@ -136,7 +120,6 @@ fun HelpAndSupportView(
   showModal: (@Composable (ChatModel) -> Unit) -> (() -> Unit),
   showCustomModal: (@Composable ModalData.(ChatModel, () -> Unit) -> Unit) -> (() -> Unit),
 ) {
-  val uriHandler = LocalUriHandler.current
   val stopped = chatModel.chatRunning.value == false
   val userDisplayName = chatModel.currentUser.value?.displayName ?: ""
   ColumnWithScrollBar {
@@ -149,24 +132,6 @@ fun HelpAndSupportView(
     }
     SectionDividerSpaced()
 
-    SectionView(stringResource(MR.strings.settings_section_title_contact)) {
-      if (!chatModel.desktopNoUserNoRemote) {
-        SettingsActionItem(painterResource(MR.images.ic_bigtop_updates), stringResource(MR.strings.follow_simplex_network_news), { uriHandler.openVerifiedSimplexUri(simplexNewsUri) }, textColor = MaterialTheme.colors.primary, disabled = stopped)
-        SettingsActionItem(painterResource(MR.images.ic_tag), stringResource(MR.strings.chat_with_the_founder), { uriHandler.openVerifiedSimplexUri(simplexTeamUri) }, textColor = MaterialTheme.colors.primary, disabled = stopped)
-      }
-      SettingsActionItem(painterResource(MR.images.ic_mail), stringResource(MR.strings.send_us_an_email), { uriHandler.openUriCatching("mailto:chat@simplex.chat") }, textColor = MaterialTheme.colors.primary)
-    }
-    SectionDividerSpaced()
-
-    SectionView(stringResource(MR.strings.settings_section_title_support_project)) {
-      if (!platform.androidIsPlayStoreBuild) {
-        ContributeItem(uriHandler)
-      }
-      if (appPlatform.isAndroid) {
-        RateAppItem(uriHandler)
-      }
-      StarOnGithubItem(uriHandler)
-    }
     SectionBottomSpacer()
   }
 }
