@@ -74,23 +74,21 @@ private fun SimpleXInfoDesktop(chatModel: ChatModel) {
       ColumnWithScrollBar(Modifier.padding(horizontal = DEFAULT_PADDING), horizontalAlignment = Alignment.CenterHorizontally) {
         Spacer(Modifier.height(DEFAULT_PADDING))
         Box(Modifier.widthIn(max = 600.dp).fillMaxWidth(0.45f).align(Alignment.CenterHorizontally)) {
-          SimpleXLogo()
+          DoveraWordmark()
         }
         Spacer(Modifier.fillMaxHeight().weight(1f))
         Column(Modifier.widthIn(max = 600.dp).align(Alignment.CenterHorizontally), horizontalAlignment = Alignment.CenterHorizontally) {
           Box(Modifier.align(Alignment.CenterHorizontally)) {
-            AppBarTitle(stringResource(MR.strings.onboarding_be_free), bottomPadding = DEFAULT_PADDING, withPadding = false, overrideTitleColor = MaterialTheme.colors.onBackground, textAlign = TextAlign.Center, lineHeight = 42.sp)
+            AppBarTitle(stringResource(MR.strings.dovera_intro_title), bottomPadding = DEFAULT_PADDING, withPadding = false, overrideTitleColor = MaterialTheme.colors.onBackground, textAlign = TextAlign.Center, lineHeight = 42.sp)
           }
-          Text(stringResource(MR.strings.onboarding_private_and_secure), style = MaterialTheme.typography.h3, fontWeight = FontWeight.Medium, color = MaterialTheme.colors.secondary, lineHeight = 25.sp, textAlign = TextAlign.Center)
+          Text(stringResource(MR.strings.dovera_intro_subtitle), style = MaterialTheme.typography.h3, fontWeight = FontWeight.Medium, color = MaterialTheme.colors.secondary, lineHeight = 25.sp, textAlign = TextAlign.Center)
           Spacer(Modifier.height(DEFAULT_PADDING_HALF))
-          ReadableText(MR.strings.onboarding_first_network, TextAlign.Center, padding = PaddingValues(), style = MaterialTheme.typography.body2.copy(color = MaterialTheme.colors.secondary))
+          ReadableText(MR.strings.dovera_intro_description, TextAlign.Center, padding = PaddingValues(), style = MaterialTheme.typography.body2.copy(color = MaterialTheme.colors.secondary))
         }
         Spacer(Modifier.fillMaxHeight().weight(1f))
         Column(Modifier.widthIn(max = 1000.dp).align(Alignment.CenterHorizontally), horizontalAlignment = Alignment.CenterHorizontally) {
           OnboardingActionButton(user, onboardingStage)
-          TextButtonBelowOnboardingButton(stringResource(MR.strings.why_simplex_is_built), icon = painterResource(MR.images.ic_info), onClick = {
-            ModalManager.fullscreen.showModal(forceAnimated = true) { HowItWorks(user, onboardingStage) }
-          })
+
         }
       }
     }
@@ -111,22 +109,17 @@ fun SimpleXInfoLayout(
   val modifier = Modifier.fillMaxSize().systemBarsPadding().padding(horizontal = DEFAULT_ONBOARDING_HORIZONTAL_PADDING)
   Column(if (topBar) modifier.padding(top = AppBarHeight * fontSizeSqrtMultiplier) else modifier, horizontalAlignment = Alignment.CenterHorizontally) {
     Box(Modifier.padding(top = DEFAULT_PADDING * 2).widthIn(max = if (appPlatform.isAndroid) 185.dp else 160.dp), contentAlignment = Alignment.Center) {
-      SimpleXLogo()
+      DoveraWordmark()
     }
     OnboardingShrinkingLayout(
       modifier = Modifier.fillMaxSize(),
       image = {
-        Column(Modifier.padding(vertical = DEFAULT_PADDING_HALF), horizontalAlignment = Alignment.CenterHorizontally) {
-          OnboardingImage(
-            MR.images.intro, MR.images.intro_light, MR.images.ic_forum,
-            modifier = if (appPlatform.isAndroid) Modifier.fillMaxWidth() else Modifier.heightIn(max = 280.dp)
-          )
-      }
-    },
+        Spacer(Modifier.height(DEFAULT_PADDING))
+      },
     content = {
       Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
-          stringResource(MR.strings.onboarding_be_free),
+          stringResource(MR.strings.dovera_intro_title),
           style = MaterialTheme.typography.h1,
           fontWeight = FontWeight.Bold,
           textAlign = TextAlign.Center,
@@ -134,7 +127,7 @@ fun SimpleXInfoLayout(
           modifier = Modifier.padding(top = DEFAULT_PADDING_HALF)
         )
         Text(
-          stringResource(MR.strings.onboarding_private_and_secure),
+          stringResource(MR.strings.dovera_intro_subtitle),
           style = MaterialTheme.typography.h3,
           color = MaterialTheme.colors.secondary,
           fontWeight = FontWeight.Medium,
@@ -143,7 +136,7 @@ fun SimpleXInfoLayout(
           modifier = Modifier.padding(top = 14.dp)
         )
         Text(
-          stringResource(MR.strings.onboarding_first_network),
+          stringResource(MR.strings.dovera_intro_description),
           style = MaterialTheme.typography.body2,
           color = MaterialTheme.colors.secondary,
           textAlign = TextAlign.Center,
@@ -156,9 +149,7 @@ fun SimpleXInfoLayout(
       if (onboardingStage != null) {
         Column(Modifier.widthIn(max = if (appPlatform.isAndroid) 450.dp else 1000.dp), horizontalAlignment = Alignment.CenterHorizontally) {
           OnboardingActionButton(user, onboardingStage)
-          TextButtonBelowOnboardingButton(stringResource(MR.strings.why_simplex_is_built), icon = painterResource(MR.images.ic_info), onClick = {
-            ModalManager.fullscreen.showModal { HowItWorks(user, onboardingStage) }
-          })
+
         }
       } else {
         Spacer(Modifier)
@@ -168,7 +159,7 @@ fun SimpleXInfoLayout(
     if (onboardingStage == null) {
       val uriHandler = LocalUriHandler.current
       Text(
-        text = "Dovera تطبيق مراسلة مبني على مشروع SimpleX Chat مفتوح المصدر. تبقى إشعارات حقوق النشر والتراخيص الأصلية محفوظة، ويخضع كل مكوّن لشروط ترخيصه.",
+        text = "مع الشكر لمشروع SimpleX Chat ومساهميه على المكونات مفتوحة المصدر. هذا البرنامج بلا ضمان؛ تفاصيل الترخيص وحقوق المكونات في ملف LICENSE.",
         style = MaterialTheme.typography.caption,
         color = MaterialTheme.colors.secondary,
         textAlign = TextAlign.Center,
@@ -200,14 +191,14 @@ fun SimpleXInfoLayout(
 }
 
 @Composable
-fun SimpleXLogo() {
-  Image(
-    painter = painterResource(if (isInDarkTheme()) MR.images.logo_light else MR.images.logo),
-    contentDescription = stringResource(MR.strings.image_descr_simplex_logo),
-    contentScale = ContentScale.FillWidth,
-    modifier = Modifier
-      .padding(bottom = 10.dp)
-      .fillMaxWidth()
+fun DoveraWordmark() {
+  Text(
+    text = "Dovera",
+    style = MaterialTheme.typography.h1,
+    fontWeight = FontWeight.Bold,
+    color = MaterialTheme.colors.primary,
+    textAlign = TextAlign.Center,
+    modifier = Modifier.fillMaxWidth().padding(vertical = DEFAULT_PADDING)
   )
 }
 
