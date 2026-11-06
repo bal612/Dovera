@@ -660,44 +660,45 @@ val DEFAULT_MIN_CENTER_MODAL_WIDTH = 590.dp
 val DEFAULT_END_MODAL_WIDTH = 388.dp
 val DEFAULT_MAX_IMAGE_WIDTH = 500.dp
 
+// Dovera signature palette: clear sky blue in light mode and luminous blue in dark mode.
 val DarkColorPalette = darkColors(
-  primary = Color(0xFF62D6C7),
-  primaryVariant = Color(0xFF269E94),
-  secondary = Color(0xFF9AAEB7),
-  secondaryVariant = Color(0xFF344A54),
-  background = Color(0xFF101A20),
-  surface = Color(0xFF1A2A32),
-  error = Color(0xFFFF6B6B),
-  onBackground = Color(0xFFEAF2F4),
-  onSurface = Color(0xFFEAF2F4),
+  primary = Color(0xFF59BCEB),
+  primaryVariant = Color(0xFF168AAD),
+  secondary = Color(0xFFA9C6D8),
+  secondaryVariant = Color(0xFF29485B),
+  background = Color(0xFF0B1722),
+  surface = Color(0xFF142635),
+  error = Color(0xFFFF7777),
+  onBackground = Color(0xFFEAF4FA),
+  onSurface = Color(0xFFEAF4FA),
 )
 val DarkColorPaletteApp = AppColors(
-  title = Color(0xFF78DED1),
-  primaryVariant2 = Color(0xFF203B43),
-  sentMessage = Color(0xFF203B43),
-  sentQuote = Color(0xFF2B5058),
-  receivedMessage = Color(0xFF253139),
-  receivedQuote = Color(0xFF33434B),
+  title = Color(0xFF79CCF2),
+  primaryVariant2 = Color(0xFF18394C),
+  sentMessage = Color(0xFF18394C),
+  sentQuote = Color(0xFF24536B),
+  receivedMessage = Color(0xFF1B2D3A),
+  receivedQuote = Color(0xFF294252),
 )
 
 val LightColorPalette = lightColors(
-  primary = Color(0xFF176B78),
-  primaryVariant = Color(0xFF125764),
-  secondary = Color(0xFF74858C),
-  secondaryVariant = Color(0xFFE8EEF0),
-  background = Color(0xFFF5F8F9),
+  primary = Color(0xFF168AAD),
+  primaryVariant = Color(0xFF126782),
+  secondary = Color(0xFF627D98),
+  secondaryVariant = Color(0xFFDCEAF3),
+  background = Color(0xFFF3F8FC),
   surface = Color(0xFFFFFFFF),
   error = Color(0xFFB3261E),
-  onBackground = Color(0xFF18262C),
-  onSurface = Color(0xFF18262C),
+  onBackground = Color(0xFF172B3A),
+  onSurface = Color(0xFF172B3A),
 )
 val LightColorPaletteApp = AppColors(
-  title = Color(0xFF176B78),
-  primaryVariant2 = Color(0xFFDDF3F0),
-  sentMessage = Color(0xFFDDF3F0),
-  sentQuote = Color(0xFFC8E9E4),
-  receivedMessage = Color(0xFFEDF1F3),
-  receivedQuote = Color(0xFFDDE5E8),
+  title = Color(0xFF168AAD),
+  primaryVariant2 = Color(0xFFDCEFFC),
+  sentMessage = Color(0xFFDCEFFC),
+  sentQuote = Color(0xFFC4E4F5),
+  receivedMessage = Color(0xFFEDF3F8),
+  receivedQuote = Color(0xFFDCE7EF),
 )
 
 val SimplexColorPalette = darkColors(
