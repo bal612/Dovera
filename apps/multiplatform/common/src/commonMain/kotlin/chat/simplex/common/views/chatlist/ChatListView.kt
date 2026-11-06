@@ -592,12 +592,23 @@ private fun ChatListToolbar(userPickerState: MutableStateFlow<AnimatedViewState>
     },
     title = {
       if (!shouldShowOnboarding()) {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(DEFAULT_SPACE_AFTER_ICON)) {
-          Text(
-            stringResource(MR.strings.your_chats),
-            color = MaterialTheme.colors.onBackground,
-            fontWeight = FontWeight.SemiBold,
-          )
+        Row(
+          verticalAlignment = Alignment.CenterVertically,
+          horizontalArrangement = Arrangement.spacedBy(DEFAULT_SPACE_AFTER_ICON)
+        ) {
+          Column(verticalArrangement = Arrangement.spacedBy(1.dp)) {
+            Text(
+              "Dovera",
+              color = MaterialTheme.colors.onBackground,
+              fontWeight = FontWeight.Bold,
+              style = MaterialTheme.typography.h6
+            )
+            Text(
+              "محادثاتك الخاصة",
+              color = MaterialTheme.colors.secondary,
+              style = MaterialTheme.typography.caption
+            )
+          }
           SubscriptionStatusIndicator(
             click = {
               ModalManager.start.closeModals()
