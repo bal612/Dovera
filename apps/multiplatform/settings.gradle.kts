@@ -16,6 +16,6 @@ pluginManagement {
     }
 }
 
-rootProject.name = "app"
+rootProject.name = "Dovera"
 
 include(":android", ":desktop", ":common", ":external:nanohttpd")
