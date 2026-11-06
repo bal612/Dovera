@@ -30,7 +30,7 @@ android {
                 cppFlags("")
             }
         }
-        manifestPlaceholders["app_name"] = "@string/app_name"
+        manifestPlaceholders["app_name"] = "Dovera"
         manifestPlaceholders["provider_authorities"] = "com.dovera.messenger.provider"
         manifestPlaceholders["extract_native_libs"] = rootProject.extra["compression.level"] as Int != 0
     }
