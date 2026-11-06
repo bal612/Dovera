@@ -24,7 +24,6 @@ import dev.icerock.moko.resources.compose.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDirection
-import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.*
 import chat.simplex.common.BuildConfigCommon
 import chat.simplex.common.model.*
@@ -165,9 +164,8 @@ fun SimpleXInfoLayout(
     }
   )
     if (onboardingStage == null) {
-      val uriHandler = LocalUriHandler.current
       Text(
-        text = "Dovera تطبيق مراسلة مبني على مشروع SimpleX Chat مفتوح المصدر. تبقى إشعارات حقوق النشر والتراخيص الأصلية محفوظة، ويخضع كل مكوّن لشروط ترخيصه.",
+        text = "Dovera — تواصل خاص وآمن، بهوية مستقلة وتجربة بسيطة.",
         style = MaterialTheme.typography.caption,
         color = MaterialTheme.colors.secondary,
         textAlign = TextAlign.Center,
