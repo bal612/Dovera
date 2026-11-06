@@ -266,5 +266,6 @@ private fun topTitleAlpha(text: Boolean, connection: CollapsingAppBarNestedScrol
   else if (connection.appBarOffset.absoluteValue < AppBarHandler.appBarMaxHeightPx / 3) 0f
   else ((-connection.appBarOffset * 1.5f) / (AppBarHandler.appBarMaxHeightPx)).coerceIn(0f, if (text) 1f else alpha)
 
-val AppBarHeight = 56.dp
-val AppBarHorizontalPadding = 2.dp
+// Dovera app bars use a slightly roomier touch target and balanced edge spacing.
+val AppBarHeight = 60.dp
+val AppBarHorizontalPadding = 6.dp
