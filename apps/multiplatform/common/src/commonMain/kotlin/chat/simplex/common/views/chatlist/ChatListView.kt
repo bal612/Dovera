@@ -260,7 +260,7 @@ private fun ChatListCard(
   content: @Composable BoxScope.() -> Unit
 ) {
   Column(
-    modifier = Modifier.clip(RoundedCornerShape(18.dp))
+    modifier = Modifier.clip(RoundedCornerShape(22.dp))
   ) {
     Box(
       modifier = Modifier
