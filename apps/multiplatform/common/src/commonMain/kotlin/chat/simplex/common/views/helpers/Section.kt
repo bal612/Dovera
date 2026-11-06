@@ -28,9 +28,10 @@ import chat.simplex.common.views.onboarding.SelectableCard
 import chat.simplex.common.views.usersettings.SettingsActionItemWithContent
 import chat.simplex.res.MR
 
-val SectionCardShape = RoundedCornerShape(16.dp)
-val CARD_PADDING = 18.dp
-val ICON_TEXT_SPACING = 8.dp
+// Dovera cards use a softer, more spacious surface treatment.
+val SectionCardShape = RoundedCornerShape(22.dp)
+val CARD_PADDING = 16.dp
+val ICON_TEXT_SPACING = 10.dp
 
 val LocalCardScreen = staticCompositionLocalOf { false }
 
