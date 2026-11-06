@@ -117,8 +117,7 @@ fun SimpleXInfoLayout(
       modifier = Modifier.fillMaxSize(),
       image = {
         Column(Modifier.padding(vertical = DEFAULT_PADDING_HALF), horizontalAlignment = Alignment.CenterHorizontally) {
-          OnboardingImage(
-            MR.images.intro, MR.images.intro_light, MR.images.ic_forum,
+          DoveraIntroArtwork(
             modifier = if (appPlatform.isAndroid) Modifier.fillMaxWidth() else Modifier.heightIn(max = 280.dp)
           )
       }
@@ -176,20 +175,6 @@ fun SimpleXInfoLayout(
           .fillMaxWidth()
           .padding(horizontal = DEFAULT_PADDING, vertical = DEFAULT_PADDING_HALF)
       )
-      Text(
-        text = "Dovera من kalimat",
-        style = MaterialTheme.typography.caption.copy(
-          fontSize = 12.sp,
-          fontWeight = FontWeight.Light,
-          textDirection = TextDirection.Rtl
-        ),
-        color = MaterialTheme.colors.secondary,
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-          .fillMaxWidth()
-          .clickable { uriHandler.openUri("https://tinyurl.com/Kalimat2011") }
-          .padding(bottom = DEFAULT_PADDING)
-      )
     }
   }
   LaunchedEffect(Unit) {
@@ -201,14 +186,62 @@ fun SimpleXInfoLayout(
 
 @Composable
 fun SimpleXLogo() {
-  Image(
-    painter = painterResource(if (isInDarkTheme()) MR.images.logo_light else MR.images.logo),
-    contentDescription = stringResource(MR.strings.image_descr_simplex_logo),
-    contentScale = ContentScale.FillWidth,
-    modifier = Modifier
-      .padding(bottom = 10.dp)
+  Row(
+    modifier = Modifier.padding(bottom = 10.dp),
+    verticalAlignment = Alignment.CenterVertically,
+    horizontalArrangement = Arrangement.spacedBy(12.dp)
+  ) {
+    Box(
+      modifier = Modifier
+        .size(54.dp)
+        .clip(RoundedCornerShape(18.dp))
+        .background(MaterialTheme.colors.primary),
+      contentAlignment = Alignment.Center
+    ) {
+      Text("D", color = Color.White, fontSize = 34.sp, fontWeight = FontWeight.ExtraBold)
+    }
+    Column {
+      Text("Dovera", color = MaterialTheme.colors.onBackground, fontSize = 27.sp, fontWeight = FontWeight.Bold)
+      Text("PRIVATE MESSAGING", color = MaterialTheme.colors.secondary, fontSize = 10.sp, letterSpacing = 2.sp)
+    }
+  }
+}
+
+@Composable
+private fun DoveraIntroArtwork(modifier: Modifier = Modifier) {
+  Box(
+    modifier = modifier
       .fillMaxWidth()
-  )
+      .heightIn(min = 160.dp, max = 205.dp)
+      .clip(RoundedCornerShape(28.dp))
+      .background(MaterialTheme.colors.secondaryVariant)
+      .padding(18.dp),
+    contentAlignment = Alignment.Center
+  ) {
+    Column(
+      modifier = Modifier.fillMaxWidth(0.92f),
+      verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+      Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Start) {
+        Surface(
+          color = MaterialTheme.colors.surface,
+          shape = RoundedCornerShape(topStart = 18.dp, topEnd = 18.dp, bottomEnd = 18.dp, bottomStart = 4.dp),
+          elevation = 2.dp
+        ) {
+          Text("Your conversations stay yours.", modifier = Modifier.padding(horizontal = 14.dp, vertical = 11.dp), color = MaterialTheme.colors.onSurface, fontSize = 13.sp)
+        }
+      }
+      Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+        Surface(
+          color = MaterialTheme.colors.primary,
+          shape = RoundedCornerShape(topStart = 18.dp, topEnd = 18.dp, bottomStart = 18.dp, bottomEnd = 4.dp),
+          elevation = 2.dp
+        ) {
+          Text("Private. Secure. Yours.", modifier = Modifier.padding(horizontal = 14.dp, vertical = 11.dp), color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.Medium)
+        }
+      }
+    }
+  }
 }
 
 @Composable
