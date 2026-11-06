@@ -13,6 +13,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+private val DoveraBlue = Color(0xFF168BE0)
+private val DoveraInk = Color(0xFF102A43)
+
 @Composable
 fun SplashView(nonTransparent: Boolean = false) {
   Surface(
@@ -24,16 +27,42 @@ fun SplashView(nonTransparent: Boolean = false) {
       Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Box(
           Modifier
-            .size(88.dp)
-            .clip(RoundedCornerShape(28.dp))
-            .background(Color(0xFF43D6C5)),
+            .size(104.dp)
+            .clip(RoundedCornerShape(32.dp))
+            .background(DoveraBlue),
           contentAlignment = Alignment.Center
         ) {
-          Text("D", color = Color(0xFF102A43), fontSize = 58.sp, fontWeight = FontWeight.ExtraBold)
+          Text(
+            "D",
+            color = Color.White,
+            fontSize = 64.sp,
+            fontWeight = FontWeight.ExtraBold,
+            letterSpacing = (-2).sp
+          )
         }
-        Spacer(Modifier.height(14.dp))
-        Text("Dovera", color = MaterialTheme.colors.onBackground, fontSize = 26.sp, fontWeight = FontWeight.Bold)
-        Text("PRIVATE MESSAGING", color = MaterialTheme.colors.secondary, fontSize = 10.sp, letterSpacing = 2.sp)
+        Spacer(Modifier.height(18.dp))
+        Text(
+          "DOVERA",
+          color = DoveraBlue,
+          fontSize = 28.sp,
+          fontWeight = FontWeight.ExtraBold,
+          letterSpacing = 3.sp
+        )
+        Spacer(Modifier.height(5.dp))
+        Text(
+          "PRIVATE MESSAGING",
+          color = MaterialTheme.colors.secondary,
+          fontSize = 10.sp,
+          letterSpacing = 2.sp
+        )
+        Spacer(Modifier.height(8.dp))
+        Text(
+          "SIGNED KALIMAT",
+          color = DoveraInk.copy(alpha = 0.62f),
+          fontSize = 9.sp,
+          fontWeight = FontWeight.Medium,
+          letterSpacing = 1.6.sp
+        )
       }
     }
   }
