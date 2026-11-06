@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   android-debug:
@@ -116,3 +116,12 @@ jobs:
           path: apps/multiplatform/android/build/outputs/apk/foss/debug/*.apk
           if-no-files-found: error
           retention-days: 14
+
+      - name: Publish direct APK download
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: dovera-test-${{ github.run_number }}
+          name: Dovera Android test ${{ github.run_number }}
+          prerelease: true
+          generate_release_notes: false
+          files: apps/multiplatform/android/build/outputs/apk/foss/debug/*.apk
