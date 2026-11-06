@@ -1163,7 +1163,7 @@
   <string name="app_version_name">App version: v%s</string>
   <string name="app_version_code">App build: %s</string>
   <string name="core_version">Core version: v%s</string>
-  <string name="core_simplexmq_version">simplexmq: v%s (%2s)</string>
+  <string name="core_simplexmq_version">Dovera Core: v%s (%2s)</string>
   <string name="app_check_for_updates">Check for updates</string>
   <string name="app_check_for_updates_disabled">Disabled</string>
   <string name="app_check_for_updates_stable">Stable</string>
@@ -1369,15 +1369,15 @@
   <string name="migrate">Migrate</string>
 
   <!-- Why Dovera is built -->
-  <string name="why_built_heading">You were born without an account.</string>
-  <string name="why_built_p1">Nobody tracked your conversations. No one drew a map of where you\'d been. Privacy was never a feature — it was the way of life.</string>
-  <string name="why_built_p2">Then we moved online, and every platform asked for a piece of you — your name, your number, your friends. We accepted that the price of talking to others is letting someone know who we talk to. Every generation, people and tech, had it this way — telephone, email, messengers, social media. It seemed the only way possible.</string>
-  <string name="why_built_p3">There is another way. A network with no phone numbers. No usernames. No accounts. No user identities of any kind. A network that connects people and carries encrypted messages without knowing who is connected.</string>
-  <string name="why_built_p4">Not a better lock on someone else\'s door. Not a nicer landlord that respects your privacy, but still keeps the record of all visitors. You are not a guest. You are home. No king can enter it — you are sovereign.</string>
-  <string name="why_built_p5">Your conversations belong to you, as it had always been before the Internet. The network is not a place you visit. It is a place you create and own. And nobody can take it from you, whether you make it private or public.</string>
-  <string name="why_built_p6">The oldest human freedom — to speak to another person without being watched — built on infrastructure that cannot betray it.</string>
-  <string name="why_built_p7">Because we destroyed the power to know who you are. So that your power can never be taken.</string>
-  <string name="why_built_tagline">Be free in your network.</string>
+  <string name="why_built_heading">Private communication, shaped around you.</string>
+  <string name="why_built_p1">Your conversations are personal. Dovera is designed to help keep them that way.</string>
+  <string name="why_built_p2">Messaging should not require giving up control of your personal conversations or sharing more information than a connection needs.</string>
+  <string name="why_built_p3">Dovera uses encrypted connections to carry messages between people while keeping the contents of their conversations private.</string>
+  <string name="why_built_p4">Privacy is more than a setting. It is a principle that should guide the design of the whole messaging experience.</string>
+  <string name="why_built_p5">You choose whom to connect with and what to share. Your conversations should remain yours.</string>
+  <string name="why_built_p6">We are building Dovera around a simple idea: communication should be useful, private, and under your control.</string>
+  <string name="why_built_p7">A calmer, more respectful way to stay connected — without making your private life the product.</string>
+  <string name="why_built_tagline">Dovera. Your conversations, your space.</string>
   <string name="to_protect_privacy_simplex_has_ids_for_queues">To protect your privacy, Dovera uses separate IDs for each of your contacts.</string>
   <string name="only_client_devices_store_contacts_groups_e2e_encrypted_messages">Only client devices store user profiles, contacts, groups, and messages.</string>
   <string name="all_message_and_files_e2e_encrypted"><![CDATA[All messages and files are sent <b>end-to-end encrypted</b>, with post-quantum security in direct messages.]]></string>
