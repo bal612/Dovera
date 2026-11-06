@@ -14,7 +14,7 @@ fun oklch(L: Float, C: Float, H: Float, alpha: Float = 1f): Color {
 }
 
 val Indigo = Color(0xFF9966FF)
-val SimplexBlue = Color(0, 136, 255, 255)  // If this value changes also need to update #0088ff in string resource files
+val SimplexBlue = Color(22, 139, 224, 255)  // If this value changes also need to update #0088ff in string resource files
 val SimplexGreen = Color(77, 218, 103, 255)
 val SecretColor = Color(0x40808080)
 val LightGray = Color(241, 242, 246, 255)
