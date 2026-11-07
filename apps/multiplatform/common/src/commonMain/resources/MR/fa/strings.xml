@@ -10,7 +10,7 @@
     <string name="abort_switch_receiving_address_confirm">لغو</string>
     <string name="abort_switch_receiving_address">لغو تغییر نشانی</string>
     <string name="abort_switch_receiving_address_question">تغییر نشانی را لغو می‌کنید؟</string>
-    <string name="about_simplex">درباره سیمپل‌اکس(Dovera)</string>
+    <string name="about_simplex">درباره Dovera</string>
     <string name="connect_via_contact_link">با نشانی مخاطب ارتباط برقرار شود؟</string>
     <string name="connect_via_invitation_link">با لینک یک بار مصرف ارتباط برقرار شود؟</string>
     <string name="connect_use_new_incognito_profile">استفاده از پروفایل ناشناس جدید</string>
@@ -52,7 +52,7 @@
     <string name="send_disappearing_message_5_minutes">۵ دقیقه</string>
     <string name="learn_more_about_address">درباره نشانی سیمپل‌اکس(Dovera)</string>
     <string name="one_time_link_short">لینک یک بار مصرف</string>
-    <string name="about_simplex_chat">درباره سیمپل‌اکس چت(Dovera)</string>
+    <string name="about_simplex_chat">درباره Dovera</string>
     <string name="alert_text_decryption_error_too_many_skipped">%1$d پیام از قلم افتاد.</string>
     <string name="chat_item_ttl_month">۱ ماه</string>
     <string name="chat_item_ttl_week">۱ هفته</string>
@@ -2523,7 +2523,7 @@
     <string name="only_you_can_send_files">فقط شما می‌توانید فایل و رسانه ارسال کنید.</string>
     <string name="only_your_contact_can_send_files">فقط مخاطب شما می‌تواند فایل‌ها و رسانه‌ها را ارسال کند.</string>
     <string name="files_prohibited_in_this_chat">ارسال فایل‌ها و رسانه‌ها در این چت ممنوع است.</string>
-    <string name="simplex_link_relay">پل ارتباطی سیمپلکس</string>
+    <string name="simplex_link_relay">نشانی مُرحّل Dovera</string>
     <string name="error_marking_member_support_chat_read">خطا در علامت گذاری به عنوان خوانده شده</string>
     <string name="proxy_destination_error_unknown_ca">اثر انگشت در نشانی سرور مقصد با گواهی مطابقت ندارد: ‎%1$s.</string>
     <string name="smp_proxy_error_unknown_ca">اثر انگشت در نشانی سرور انتقال با گواهی مطابقت ندارد: ‎%1$s.</string>
