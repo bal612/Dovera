@@ -50,7 +50,7 @@
     <string name="error_showing_content">خطا در نمایش محتوا</string>
     <string name="decryption_error">خطا در رمزگشایی</string>
     <string name="send_disappearing_message_5_minutes">۵ دقیقه</string>
-    <string name="learn_more_about_address">درباره نشانی سیمپل‌اکس(Dovera)</string>
+    <string name="learn_more_about_address">درباره نشانی Dovera</string>
     <string name="one_time_link_short">لینک یک بار مصرف</string>
     <string name="about_simplex_chat">درباره Dovera</string>
     <string name="alert_text_decryption_error_too_many_skipped">%1$d پیام از قلم افتاد.</string>
@@ -1902,7 +1902,7 @@
     <string name="archive_report">بایگانی گزارش</string>
     <string name="report_archive_alert_title">گزارش بایگانی شود؟</string>
     <string name="error_parsing_uri_title">پیوند نامعتبر</string>
-    <string name="error_parsing_uri_desc">لطفاً بررسی کنید که لینک سیمپلکس درست است.</string>
+    <string name="error_parsing_uri_desc">لطفاً بررسی کنید که لینک Dovera درست است.</string>
     <string name="report_item_visibility_submitter">فقط شما و ناظران آن را می‌بینید</string>
     <string name="report_item_visibility_moderators">فقط فرستنده و ناظران آن را می‌بینند</string>
     <string name="display_name_requested_to_connect">درخواست اتصال داد</string>
