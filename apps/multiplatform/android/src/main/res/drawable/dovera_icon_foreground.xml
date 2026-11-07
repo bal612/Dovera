@@ -4,11 +4,20 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
+    <!-- Dovera's silver bird and flowing wing mark, simplified for Android adaptive icon safe area. -->
     <path
-        android:fillColor="#43D6C5"
-        android:pathData="M22,22h56a10,10 0,0 1,10 10v34a10,10 0,0 1,-10 10H51L34,89v-13h-12a10,10 0,0 1,-10 -10V32a10,10 0,0 1,10 -10z"/>
+        android:fillColor="#EAF7FF"
+        android:pathData="M17,69 C27,52 38,34 54,25 C47,39 43,48 40,56 C52,43 65,33 84,30 C72,42 68,52 65,62 C77,54 87,50 96,49 C83,62 71,72 55,78 C42,83 28,81 17,69 Z"/>
     <path
-        android:fillColor="#102A43"
-        android:fillType="evenOdd"
-        android:pathData="M37,34h17c14,0 23,9 23,21s-9,21 -23,21H37z M47,44v22h6c8,0 13,-4 13,-11s-5,-11 -13,-11z"/>
+        android:fillColor="#B9DDF4"
+        android:pathData="M20,71 C34,66 46,59 58,48 C52,61 42,71 29,77 C25,76 22,74 20,71 Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M52,26 C58,31 65,34 75,34 C68,38 62,41 55,47 C57,39 55,32 52,26 Z"/>
+    <path
+        android:fillColor="#D8F0FF"
+        android:pathData="M77,73 C82,68 87,65 94,63 C89,72 82,78 73,82 L66,82 Z"/>
+    <path
+        android:fillColor="#EAF7FF"
+        android:pathData="M23,84 C39,79 55,78 70,81 C55,86 39,89 23,84 Z"/>
 </vector>
