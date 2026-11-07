@@ -23,8 +23,14 @@ jobs:
       - name: Checkout with submodules
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: dovera/brand-identity-pass
           submodules: recursive
+
+      - name: Stop release until Dovera-owned native libraries are ready
+        run: |
+          echo "Release paused: native libraries must be supplied from a Dovera-controlled source."
+          echo "No files will be downloaded from SimpleX servers."
+          exit 1
 
       - name: Set up Java 17
         uses: actions/setup-java@v4
@@ -61,25 +67,6 @@ jobs:
           printf '%s' "$KEYSTORE_B64" | base64 --decode > "$RUNNER_TEMP/dovera-upload.jks"
           test -s "$RUNNER_TEMP/dovera-upload.jks"
           chmod 600 "$RUNNER_TEMP/dovera-upload.jks"
-
-      - name: Download verified upstream native libraries
-        run: |
-          set -euxo pipefail
-          LIBS="apps/multiplatform/common/src/commonMain/cpp/android/libs"
-          mkdir -p "$LIBS/arm64-v8a" "$LIBS/armeabi-v7a" .native-apks
-          BASE="https://git.simplex.chat/simplex-chat/simplex-chat/releases/download/v7.0.4"
-          curl -fL --retry 4 --retry-all-errors "$BASE/simplex-aarch64.apk" -o .native-apks/simplex-aarch64.apk
-          curl -fL --retry 4 --retry-all-errors "$BASE/simplex-armv7a.apk" -o .native-apks/simplex-armv7a.apk
-          echo "17966066a1e4369ebc8c569baec9607213b510a53b328279eb516facb3e7db29  .native-apks/simplex-aarch64.apk" | sha256sum -c -
-          echo "7503603e83164e05ef60b0dbdca517260fe9f8b35954d2fcf79ef23981889524  .native-apks/simplex-armv7a.apk" | sha256sum -c -
-          for lib in libsimplex.so libsupport.so; do
-            unzip -p .native-apks/simplex-aarch64.apk "lib/arm64-v8a/$lib" > "$LIBS/arm64-v8a/$lib"
-            unzip -p .native-apks/simplex-armv7a.apk "lib/armeabi-v7a/$lib" > "$LIBS/armeabi-v7a/$lib"
-            test -s "$LIBS/arm64-v8a/$lib"
-            test -s "$LIBS/armeabi-v7a/$lib"
-          done
-          readelf -h "$LIBS/arm64-v8a/libsimplex.so" | grep -E 'Machine:.*AArch64'
-          readelf -h "$LIBS/armeabi-v7a/libsimplex.so" | grep -E 'Machine:.*ARM'
 
       - name: Build and sign Dovera FOSS release APKs
         working-directory: apps/multiplatform
