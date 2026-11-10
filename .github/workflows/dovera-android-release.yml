@@ -26,11 +26,37 @@ jobs:
           ref: dovera/brand-identity-pass
           submodules: recursive
 
-      - name: Stop release until Dovera-owned native libraries are ready
+      - name: Set up Nix for reproducible native builds
+        uses: cachix/install-nix-action@v30
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            max-jobs = auto
+            cores = 2
+
+      - name: Build Dovera native engine for ARM64 and ARMv7
+        shell: bash
         run: |
-          echo "Release paused: native libraries must be supplied from a Dovera-controlled source."
-          echo "No files will be downloaded from SimpleX servers."
-          exit 1
+          set -euo pipefail
+          LIBS="apps/multiplatform/common/src/commonMain/cpp/android/libs"
+          mkdir -p "$LIBS/arm64-v8a" "$LIBS/armeabi-v7a"
+
+          nix build -L '.#hydraJobs.x86_64-linux."aarch64-android:lib:simplex-chat"' --out-link result-simplex-arm64
+          unzip -oq result-simplex-arm64/pkg-aarch64-android-libsimplex.zip -d "$LIBS/arm64-v8a"
+          nix build -L '.#hydraJobs.x86_64-linux."aarch64-android:lib:support"' --out-link result-support-arm64
+          unzip -oq result-support-arm64/pkg-aarch64-android-libsupport.zip -d "$LIBS/arm64-v8a"
+
+          nix build -L '.#hydraJobs.x86_64-linux."armv7a-android:lib:simplex-chat"' --out-link result-simplex-armv7
+          unzip -oq result-simplex-armv7/pkg-armv7a-android-libsimplex.zip -d "$LIBS/armeabi-v7a"
+          nix build -L '.#hydraJobs.x86_64-linux."armv7a-android:lib:support"' --out-link result-support-armv7
+          unzip -oq result-support-armv7/pkg-armv7a-android-libsupport.zip -d "$LIBS/armeabi-v7a"
+
+          for abi in arm64-v8a armeabi-v7a; do
+            test -s "$LIBS/$abi/libsimplex.so"
+            test -s "$LIBS/$abi/libsupport.so"
+            echo "Verified native libraries for $abi"
+            sha256sum "$LIBS/$abi/"*.so
+          done
 
       - name: Set up Java 17
         uses: actions/setup-java@v4
