@@ -98,18 +98,10 @@ fun SplashView(nonTransparent: Boolean = false) {
         )
         Spacer(Modifier.height(5.dp))
         Text(
-          "PRIVATE MESSAGING",
-          color = MaterialTheme.colors.secondary,
-          fontSize = 10.sp,
-          letterSpacing = 2.sp
-        )
-        Spacer(Modifier.height(8.dp))
-        Text(
-          "SIGNED KALIMAT",
-          color = DoveraInk.copy(alpha = 0.62f),
-          fontSize = 9.sp,
-          fontWeight = androidx.compose.ui.text.font.FontWeight.Medium,
-          letterSpacing = 1.6.sp
+          "تواصل",
+          color = DoveraBlue,
+          fontSize = 18.sp,
+          fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold
         )
       }
     }
